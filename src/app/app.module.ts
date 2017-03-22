@@ -8,6 +8,7 @@ import { DisplayPostComponent } from './display-post/display-post.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AddPostComponent } from './add-post/add-post.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'home', component: HomePageComponent },
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
     AppComponent,
     DisplayPostComponent,
     AddPostComponent,
-    HomePageComponent
+    HomePageComponent,
+    UploadImageComponent
 
   ],
   imports: [

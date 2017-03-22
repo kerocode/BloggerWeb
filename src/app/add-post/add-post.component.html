@@ -1,15 +1,15 @@
-
 <div style="min-height: 500px; margin-top: 50px">
   <h2 style="text-align: center;">Add New Post</h2>
-<div class="md-form">
-  <input type="text" id="title"  [(ngModel)]="post.title" required class="form-control">
-  <label for="form1" class="">Post Title</label>
+  <div class="md-form">
+    <input type="text" id="title" [(ngModel)]="post.title" required class="form-control">
+    <label for="form1" class="">Post Title</label>
+  </div>
+  <div class="md-form">
+    <textarea type="text" id="body" [(ngModel)]="post.body" required class="md-textarea"></textarea>
+    <label for="form7">Post Body</label>
+  </div>
+  <a class="btn btn-secondary btn-lg" [ngClass]="{disabled : !isValid}" (click)="onConfirm()">Post</a>
 </div>
-<div class="md-form">
-  <textarea type="text" id="body"  [(ngModel)]="post.body" required class="md-textarea"></textarea>
-  <label for="form7">Post Body</label>
-</div>
-
-  <a  class="btn btn-secondary btn-lg" [ngClass]="{disabled : !isValid}" (click)="onConfirm()">Post</a>
-
+<div>
+  <app-upload-image></app-upload-image>
 </div>
