@@ -1,0 +1,28 @@
+<div class="divider-new">
+</div>
+<div *ngIf="post">
+  <div class="container">
+    <img src="{{post.headerImage.imageName}}" style="width:100%; height: auto" alt="">
+    <div class="row">
+      <span style="margin:10px 15px;">
+       <h2 class="h2-responsive wow ">{{post.title}}</h2>
+       <h6 style="color: gray;font-size: 0.8rem;"> By : {{post.author.lastName}}, {{post.author.firstName}} </h6>
+     </span>
+    </div>
+    <div class="row" id="chips" *ngIf="post.postTopics">
+      <div class="col-md-2" id="chips" *ngFor="let t of post.postTopics; let index=index;">
+        <div class="chip">{{topics[t.id]}}</div>
+      </div>
+    </div>
+    <div class="row">
+      <span style="margin-left: 14px;">
+       <p>{{post.body}}</p>
+      </span>
+    </div>
+    <div class="row">
+      <span style="margin-left: 14px;">
+       <h6 style="color: gray;font-size: 0.7rem;"> Published By :{{post.publisher.name}}</h6>
+      </span>
+    </div>
+  </div>
+</div>
