@@ -20,12 +20,12 @@
     "styles": [
       "styles.css",
       "bootstrap.css",
-      "mdb.css"
-
+      "mdb.css",
+      "../node_modules/font-awesome/css/font-awesome.css"
     ],
     "scripts": [
       "jquery-3.1.1.js",
-           "tether.js",
+      "tether.js",
       "bootstrap.js",
       "mdb.js"
 
