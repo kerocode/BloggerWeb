@@ -1,4 +1,4 @@
-<div style="min-height: 500px; margin-top: 50px">
+<div style="min-height: 500px; margin-top: 50px" *ngIf="step == 1">
   <h2 style="text-align: center;">Add New Post</h2>
   <div class="md-form">
     <input type="text" id="title" [(ngModel)]="post.title" required class="form-control">
@@ -10,6 +10,6 @@
   </div>
   <a class="btn btn-secondary btn-lg" [ngClass]="{disabled : !isValid}" (click)="onConfirm()">Post</a>
 </div>
-<div>
-  <app-upload-image></app-upload-image>
+<div *ngIf="step == 2">
+  <app-upload-image [postId]="postId"></app-upload-image>
 </div>

@@ -16,7 +16,7 @@ export class PostServiceService {
       .catch(this.handleError);
   }
   getPostById(id: number): Observable<any[]> {
-    let url = this.postUrl + '/'+id;
+    let url = this.postUrl + '/' + id;
     return this.http.get(url, { headers: this.getHeaders() })
       .map(this.extractData)
       .catch(this.handleError);
@@ -53,5 +53,21 @@ export class PostServiceService {
     return headers;
   }
 
+  uploadImage(modal) {
+    let url = this.postUrl;
+    let imageHeader;
+    imageHeader['PostId'] = modal.postId;
+    imageHeader['ImageName'] = modal.ImageName;
+    let img =  new FormData()
+    img.append("ImageContent", modal.ImageContent);
+    imageHeader['ImageContent'] = img;
+    let bodyString = JSON.stringify(modal); // Stringify payload
+    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    let options = new RequestOptions({ headers: headers }); // Create a request option
+
+    return this.http.post(url, imageHeader, options)
+      .map((res: Response) => res.json()) // ...and calling .json() on the response to return data
+      .catch(this.handleError); //...errors if any
+  }
 }
 

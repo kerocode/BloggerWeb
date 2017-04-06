@@ -8,9 +8,12 @@ import { PostServiceService } from '../post-service.service';
 })
 export class AddPostComponent implements OnInit {
   isValid = false;
+  PostId;
   errorMessage;
   response;
+  step=1;
   constructor(private postServiceService: PostServiceService, private router: Router) { }
+
   post = {
     "authorId": 1,
     "publisherId": 1,
@@ -29,9 +32,12 @@ export class AddPostComponent implements OnInit {
   }
   onConfirm() {
     if ((this.post.body !== "") && (this.post.title !== "")) {
-      this.postServiceService.addPost(this.post).subscribe();
-      this.router.navigate(['/home']);
+      this.postServiceService.addPost(this.post).subscribe((post) => {
+        // this.router.navigate(['/home']);
+        this.PostId = post.id;
+      });
     }
-
   }
+
+
 }
